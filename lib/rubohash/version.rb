@@ -1,3 +1,5 @@
+# Rubohash namespace
 module Rubohash
-  VERSION = '0.1.0'
+  # The version number of this gem
+  VERSION = '0.1.0'.freeze
 end

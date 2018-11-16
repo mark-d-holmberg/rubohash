@@ -4,11 +4,13 @@ source ./bin/install.sh
 
 irb -r 'rubohash'
 
-# echo "Starting new Pretty Scraper instance..."
-# /usr/bin/env ruby './bin/pretty.rb'
-
-# echo "Starting new Purge Tool instance..."
-# /usr/bin/env ruby './bin/_purge_driver.rb'
-
-# echo "Starting new Partial Scraper instance..."
-# /usr/bin/env ruby './bin/parser.rb'
+# TODO: You can set the configuration options for Rubohash here
+# Rubohash.configure do |c|
+#   c.default_extensions = %w[.png .gif .jpg .bmp .jpeg .ppm .datauri]
+#   c.default_set        = "set1"
+#   c.use_default_set    = false
+#   c.robot_output_path  = '/Users/mark/dev/backend-tools/rubohash/output/'
+#   c.default_format     = 'png'
+#   c.default_bg_set     = 'bg1'
+#   c.use_default_bg_set = false
+# end
