@@ -1,6 +1,6 @@
 module Rubohash
   class Robot
-    attr_accessor :my_set, :my_color, :my_background_set, :name, :parts
+    attr_accessor :my_set, :my_color, :my_background_set, :name, :parts, :my_digest
 
     def initialize(params={})
       puts "Building Robot with Params:"

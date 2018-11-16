@@ -128,7 +128,8 @@ module Rubohash
         c.resize "300x300"
       end
 
-      robot.name = self.my_digest
+      robot.name = self.string
+      robot.my_digest = self.my_digest
 
       # path = File.expand_path("../output/#{robot.name}.png", File.dirname(__FILE__))
       path = "/Users/mark/dev/backend-tools/rubohash/output/#{robot.name}.png"
