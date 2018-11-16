@@ -127,7 +127,9 @@ module Rubohash
       end
 
       robot.name = self.my_digest
-      path = "/Users/mark/Desktop/robots/#{robot.name}.png"
+
+      # path = File.expand_path("../output/#{robot.name}.png", File.dirname(__FILE__))
+      path = "/Users/mark/dev/backend-tools/rubohash/output/#{robot.name}.png"
       puts "Writing Robot: '#{path}'"
       image.write path
       robot
