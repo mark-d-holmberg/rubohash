@@ -149,14 +149,19 @@ module Rubohash
         set = self.sets[set_hash_key]
       end
 
-      # Pull the background Set from the hash bits
-      bg_set_hash_key = self.my_hash_array[2] % self.bg_sets.length
-      bg_sample = self.bg_sets[bg_set_hash_key]
+      if Rubohash.use_default_bg_set
+        bg_sample       = Rubohash.default_bg_set
+        bg_set_hash_key = nil
+      else
+        # Pull the background Set from the hash bits
+        bg_set_hash_key = self.my_hash_array[2] % self.bg_sets.length
+        bg_sample       = self.bg_sets[bg_set_hash_key]
+      end
 
       color = if set == 'set1'
         # Pull the color for the hash bits
         color_hash_key = self.my_hash_array[0] % self.colors.length
-        color_sample = self.colors[color_hash_key]
+        color_sample   = self.colors[color_hash_key]
 
         set = "set1/#{color_sample}"
         color_sample

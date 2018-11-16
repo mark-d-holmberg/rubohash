@@ -23,5 +23,13 @@ RSpec.describe Rubohash do
     it 'knows the default_format' do
       expect(Rubohash.default_format).to eql('png')
     end
+
+    it 'knows the default_bg_set' do
+      expect(Rubohash.default_bg_set).to eql('bg1')
+    end
+
+    it 'knows the use_default_bg_set' do
+      expect(Rubohash.use_default_bg_set).to be_falsey
+    end
   end
 end
