@@ -6,7 +6,7 @@ module Rubohash
       self.string            = string
       self.remove_extensions = true
       self.my_format         = my_format
-      self.my_format ||= 'png'
+      self.my_format ||= Rubohash.default_format
       self.my_digest = make_digest(string)
       self.my_hash_array = create_hashes([], self.my_digest, 11)
 
@@ -131,20 +131,23 @@ module Rubohash
       robot.name = self.string
       robot.my_digest = self.my_digest
 
-      # path = File.expand_path("../output/#{robot.name}.png", File.dirname(__FILE__))
-      path = "/Users/mark/dev/backend-tools/rubohash/output/#{robot.name}.png"
+      path = "#{Rubohash.robot_output_path}#{robot.name}.#{self.my_format}"
       puts "Writing Robot: '#{path}'"
       image.write path
       robot
     end
 
     private
-    def build_robot_attrs
-      # set = "set1"
 
-      # Pull the set from the hash bits
-      set_hash_key = self.my_hash_array[1] % self.sets.length
-      set = self.sets[set_hash_key]
+    def build_robot_attrs
+      if Rubohash.use_default_set
+        set = Rubohash.default_set
+        set_hash_key = nil
+      else
+        # Pull the set from the hash bits
+        set_hash_key = self.my_hash_array[1] % self.sets.length
+        set = self.sets[set_hash_key]
+      end
 
       # Pull the background Set from the hash bits
       bg_set_hash_key = self.my_hash_array[2] % self.bg_sets.length
