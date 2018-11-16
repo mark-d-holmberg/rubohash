@@ -9,3 +9,10 @@ if [ -f "rubohash-$GEM_VERSION.gem" ]; then
   echo "Removing source gem"
   rm rubohash-$GEM_VERSION.gem
 fi
+
+if [ -d 'output/' ]; then
+  echo "Nuking Output Folder"
+  rm -Rf output
+  mkdir output
+  touch output/.gitkeep
+fi
