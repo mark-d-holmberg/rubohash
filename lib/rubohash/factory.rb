@@ -9,9 +9,6 @@ module Rubohash
       self.my_format ||= Rubohash.default_format
       self.my_digest = make_digest(string)
       self.my_hash_array = create_hashes([], self.my_digest, 11)
-
-      puts "My Hash Array is: "
-      pp my_hash_array
     end
 
     def make_digest(string)
@@ -55,7 +52,7 @@ module Rubohash
       end.sort
     end
 
-    # eyes, ears, etc... #TODO: ordering!
+    # eyes, ears, etc...
     def get_list_of_files(path)
       # Get all subdirectories
       # sets/set1/blue
@@ -64,6 +61,7 @@ module Rubohash
         File.directory?(entry)
       end.sort
 
+      # This is to index into the proper place in the hash array
       iter = 4
       directories.map do |dir|
         files = Dir.entries(dir).reject { |k| %w[. ..].include?(k) }.sort
@@ -104,14 +102,9 @@ module Rubohash
       # Set background itself from hash bits
       background_hash_key = self.my_hash_array[3] % background_files.size
       background = background_files[background_hash_key]
-      puts "Backround Hash Key is: '#{background_hash_key}'"
-      puts "Background is: '#{background}'"
 
       image = MiniMagick::Image.open(roboparts.first)
       image = image.resize("1024x1024")
-
-      # puts roboparts.inspect
-      # puts background.inspect
 
       roboparts.each do |part|
         img = MiniMagick::Image.open(part)
