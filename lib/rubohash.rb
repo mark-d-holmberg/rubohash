@@ -10,10 +10,10 @@ require 'rubohash/robot'
 
 module Rubohash
   @default_extensions = %w[.png .gif .jpg .bmp .jpeg .ppm .datauri]
-  @default_set = "set1"
-  @use_default_set = false
-  @robot_output_path = '/Users/mark/dev/backend-tools/rubohash/output/'
-  @default_format = 'png'
+  @default_set        = "set1"
+  @use_default_set    = false
+  @robot_output_path  = '/Users/mark/dev/backend-tools/rubohash/output/'
+  @default_format     = 'png'
 
   def self.default_extensions=(my_default_extensions)
     @default_extensions = my_default_extensions
