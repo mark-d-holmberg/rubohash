@@ -64,9 +64,11 @@ module Rubohash
         File.directory?(entry)
       end.sort
 
-      directories.map.with_index do |dir, index|
-        files = Dir.entries(dir).reject { |k| %w[. ..].include?(k) }
-        sample = files[self.my_hash_array[index] % files.length]
+      iter = 4
+      directories.map do |dir|
+        files = Dir.entries(dir).reject { |k| %w[. ..].include?(k) }.sort
+        sample = files[self.my_hash_array[iter] % files.length]
+        iter += 1
         [dir, sample].join('/')
       end
     end
