@@ -13,4 +13,5 @@ irb -r 'rubohash'
 #   c.default_format     = 'png'
 #   c.default_bg_set     = 'bg1'
 #   c.use_default_bg_set = false
+#   c.mounted            = false
 # end

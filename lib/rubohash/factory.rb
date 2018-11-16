@@ -137,10 +137,15 @@ module Rubohash
       robot.name = string
       robot.my_digest = my_digest
 
-      path = "#{Rubohash.robot_output_path}#{robot.name}.#{self.my_format}"
-      puts "Writing Robot: '#{path}'"
-      image.write path
-      robot
+      if Rubohash.mounted
+        # Just return the image
+        image
+      else
+        path = "#{Rubohash.robot_output_path}#{robot.name}.#{self.my_format}"
+        puts "Writing Robot: '#{path}'"
+        image.write path
+        robot
+      end
     end
 
     private

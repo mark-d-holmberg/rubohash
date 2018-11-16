@@ -17,6 +17,7 @@ module Rubohash
   @default_format     = 'png'
   @default_bg_set     = 'bg1'
   @use_default_bg_set = false
+  @mounted            = false
 
   # Set the default extensions to strip out
   def self.default_extensions=(my_default_extensions)
@@ -86,6 +87,16 @@ module Rubohash
   # Get whether we are using the default background set
   def self.use_default_bg_set
     @use_default_bg_set
+  end
+
+  # Set mounted to rails engine
+  def self.mounted=(my_mounted)
+    @mounted = my_mounted
+  end
+
+  # Get Mounted to rails engine
+  def self.mounted
+    @mounted
   end
 
   # Assemble a new robot based on string
