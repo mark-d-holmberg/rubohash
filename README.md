@@ -39,6 +39,11 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ### Derivation Notice! :
+
+The images are licensed under Creative Commons by attribution
+
+> Robots lovingly provided by robohash.org
+
 This ruby gem is a derivation of the python repository at: https://github.com/e1ven/Robohash
 
 > The Python Code is available under the MIT/Expat license. See the LICENSE.txt file for the full text of this license. Copyright (c) 2011, Colin Davis.
