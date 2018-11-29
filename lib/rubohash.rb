@@ -13,7 +13,7 @@ module Rubohash
   @default_extensions = %w[.png .gif .jpg .bmp .jpeg .ppm .datauri]
   @default_set        = 'set1'
   @use_default_set    = false
-  @robot_output_path  = '/Users/mark/dev/backend-tools/rubohash/output/'
+  @robot_output_path  = '/Users/mark/dev/backend-tools/handi/src/rubohash/output/'
   @default_format     = 'png'
   @default_bg_set     = 'bg1'
   @use_default_bg_set = false
