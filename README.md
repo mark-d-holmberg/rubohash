@@ -1,40 +1,34 @@
 # Rubohash
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubohash`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A ruby implementation for generating unique images based on the checksum of a given string.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+I have provided some scripts under `bin/` which should help automate the process. You'll need to either use an initializer to set the `output_path` or edit `lib/rubohash.rb` to change `@robot_output_path  = '/Users/mark/dev/backend-tools/handi/src/rubohash/output/'` to a known location on your system. You can also configure the various options like `default_set`, `default_format`, and `default_bg_set`.
 
-```ruby
-gem 'rubohash'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rubohash
+You should be able to use the script `./bin/build.sh` to build, install, and launch an irb terminal with the gem loaded. You can also configure the gem in this script.
 
 ## Usage
 
-TODO: Write usage instructions here
+Once you have an irb console open, simple do:
 
-## Development
+```rb
+  Rubohash.assemble!("my_test_string_here")
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+This will run the algorithm and output the file to `@robot_output_path`. You also need to have ImageMagick installed on your system.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Rubohash can also be mounted inside a Rails application by setting `mounted` to `true`.
 
-## Contributing
+## Cleaning Up
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubohash.
+You should be able to completely uninstall the gem by running:
 
-## License
+```sh
+  ./bin/clean.sh
+```
+
+## License and Attribution
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
