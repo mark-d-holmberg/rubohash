@@ -34,11 +34,13 @@ module Rubohash
     # Breaks up our hash into slots, so we can pull them out later.
     # Essentially, it splits our SHA/MD5/etc into X parts.
     def create_hashes(my_hash_array, digest, kount)
+      blocksize = (digest.length / kount).to_i
       (0...kount.to_i).each do |iter|
-        blocksize = (digest.length / kount).to_i
         currentstart = (1 + iter) * blocksize - blocksize
         currentend = (1 + iter) * blocksize
-        my_hash_array.push(digest[currentstart...currentend].to_i(16))
+        digest_subset = digest[currentstart...currentend]
+        range = digest_subset.to_i(16)
+        my_hash_array.push(range)
       end
       my_hash_array
     end
