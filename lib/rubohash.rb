@@ -7,6 +7,7 @@ require 'mini_magick'
 
 require 'rubohash/factory'
 require 'rubohash/robot'
+MiniMagick.logger.level = Logger::DEBUG
 
 # Rubohash namespace
 module Rubohash
