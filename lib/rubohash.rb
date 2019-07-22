@@ -20,6 +20,21 @@ module Rubohash
   @use_default_bg_set = false
   @mounted            = false
 
+  def self.inspect
+    %i[
+      default_extensions
+      default_set
+      use_default_set
+      robot_output_path
+      default_format
+      default_bg_set
+      use_default_bg_set
+      mounted
+    ].each_with_object({}) do |k, obj|
+      obj[k] = Rubohash.instance_variable_get("@#{k}")
+    end
+  end
+
   # Set the default extensions to strip out
   def self.default_extensions=(my_default_extensions)
     @default_extensions = my_default_extensions
